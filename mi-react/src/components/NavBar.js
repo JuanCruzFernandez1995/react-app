@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget";
+
 function NavBar() {
     return (
       <div className="navBar">
@@ -5,6 +7,7 @@ function NavBar() {
               E-commerce React
           </h1>
           <ul>
+            <CartWidget />
             <li>
                 <a href="Home">
                   Home
@@ -26,6 +29,7 @@ function NavBar() {
                 </a>
             </li>
           </ul>
+          
       </div>
     );
   }
