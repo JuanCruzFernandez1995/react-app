@@ -10,9 +10,12 @@ function App() {
         <NavBar />
       </header>
       <main>
-        <div className="mainContainer container border mt-5">
-          <ItemListContainer greeting="Greeting" />
-          
+        <div className="container d-md-flex w-100 justify-content-center align-items-center border mt-3 " >
+          <div className="row">
+            <div className="col-12">
+              <ItemListContainer greeting="Nuestros Productos" />
+            </div>
+          </div>
         </div>
       </main>
     </div>
