@@ -17,18 +17,19 @@ const cards = [
         title: 'Hoppy Golden',
         img: birra2,
         description: 'Esta cerveza rubia posee una alta tomabilidad, ligereza, dorada, con un toque de trigo y un delicado, aunque notorio, aroma a lúpulo.',
-        stock: 5
+        stock: 5,
     },
     {
         id: 3,
         title: 'IPA',
         img: birra3,
         description: 'La India pale ale es un estilo de cerveza de tradición inglesa que se caracteriza como una ale​ pálida y espumosa con un alto nivel de alcohol y de lúpulo.​',
-        stock: 5
+        stock: 5,
     },
 ];
 
 function ItemListContainer(props){
+   
 
     return (
         <div className="container"> 
@@ -37,7 +38,7 @@ function ItemListContainer(props){
                 {
                     cards.map(card => (
                     <div className="col-md-4" key={card.id}>
-                        <CardItem title={card.title} img={card.img} description={card.description}/>
+                        <CardItem initial={1} stock={card.stock} title={card.title} img={card.img} description={card.description}/>
                     </div> 
                     ))
                 }
