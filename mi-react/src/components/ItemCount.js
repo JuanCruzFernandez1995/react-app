@@ -1,7 +1,7 @@
 import React from 'react';
 
-function ItemCount({stock, initial}) {
-    const [count, setCount] = React.useState(initial);
+function ItemCount({stock, initial, onAdd}) {
+    const [count, setCount] = React.useState(1);
 
     const handleAdd = () => {
       if(count < stock){
@@ -10,17 +10,19 @@ function ItemCount({stock, initial}) {
     }
     
     const handleRemove = () => {
-      if(count > initial){
+      if(count > 1){
         setCount(count - 1)
       }
     }
-    const addCart = () => {
+    /* const addCart = () => {
       if(stock > 0){
         alert(`Agregaste ${count} item`)
+        setCount(initial)
       } else {
         alert(`No hay stock de este producto`)
+        setCount(initial)
       }
-    }
+    } */
     
   return (
     <> 
@@ -31,7 +33,7 @@ function ItemCount({stock, initial}) {
             <button type="button" className="btn btn-primary" onClick={handleAdd}>+</button>
           </div>
           <div className='text-center'>
-            <button className="btn btn-primary mb-3" type="button" onClick={addCart}>Agregar al carrito</button>
+            <button className="btn btn-primary mb-3" type="button" onClick={onAdd}>Agregar al carrito</button>
           </div>
         </>
     

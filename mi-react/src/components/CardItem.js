@@ -2,7 +2,7 @@ import React from 'react';
 import ItemCount from './ItemCount';
 
 
-function CardItem ({title, img, description, stock, initial}){
+function CardItem ({title, img, description, stock, initial, onAdd}){
     
     return(
     <div className="card" style={{width: "14rem", height: "100%"}}>
@@ -12,7 +12,7 @@ function CardItem ({title, img, description, stock, initial}){
             <p className="card-text text-secondary">{description}</p>    
         </div>
         <div>
-            <ItemCount stock={stock} initial={initial} />
+            <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
         </div>
     </div>
     );
