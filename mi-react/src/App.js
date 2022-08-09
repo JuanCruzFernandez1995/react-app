@@ -1,4 +1,5 @@
 import './App.css';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from './components/NavBar';
 
@@ -14,6 +15,7 @@ function App() {
           <div className="row">
             <div className="col-12">
               <ItemListContainer greeting="Nuestros Productos" />
+              <ItemDetailContainer itemId={3} />
             </div>
           </div>
         </div>

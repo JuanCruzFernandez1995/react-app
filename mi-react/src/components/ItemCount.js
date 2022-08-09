@@ -14,7 +14,7 @@ function ItemCount({stock, initial, onAdd}) {
         setCount(count - 1)
       }
     }
-    /* const addCart = () => {
+    const addCart = () => {
       if(stock > 0){
         alert(`Agregaste ${count} item`)
         setCount(initial)
@@ -22,7 +22,7 @@ function ItemCount({stock, initial, onAdd}) {
         alert(`No hay stock de este producto`)
         setCount(initial)
       }
-    } */
+    }
     
   return (
     <> 
@@ -33,7 +33,7 @@ function ItemCount({stock, initial, onAdd}) {
             <button type="button" className="btn btn-primary" onClick={handleAdd}>+</button>
           </div>
           <div className='text-center'>
-            <button className="btn btn-primary mb-3" type="button" onClick={onAdd}>Agregar al carrito</button>
+            <button className="btn btn-primary mb-3" type="button" onClick={addCart}>Agregar al carrito</button>
           </div>
         </>
     

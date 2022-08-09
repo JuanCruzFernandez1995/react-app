@@ -1,11 +1,11 @@
-import CardItem from "./CardItem";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import birra1 from "../assets/birra1.jpg";
 import birra2 from "../assets/birra2.jpg";
 import birra3 from "../assets/birra3.jpg";
-import React, { useState, useEffect} from "react";
+import ItemDetail from "./ItemDetail";
 
-
-const cards = [
+const cardsJSON = [
     {
         id: 1,
         title: 'Boston Ale',
@@ -51,39 +51,30 @@ const cards = [
 ];
 
 
-function getProductos(){
-    return new Promise((resolve)=>{
-        setTimeout(()=> resolve(cards), 500);
-    });
-}
+function ItemDetailContainer({itemId}) {
 
-function ItemListContainer(props){
-    const [data, setData] = useState([]);
+    const [item, setItem] = useState([]);
 
-    /* function onAdd(count) {
-        alert(`Agregaste ${count} al carrito`)
-    } */
-
-    useEffect(() => {
-        getProductos().then((respuesta) => {
-            setData(respuesta);
+    function getProductos(){
+        return new Promise((resolve, reject)=>{
+            let itemEncontrado = cardsJSON.find(element => itemId === element.id);
+            if (itemEncontrado === undefined || null){
+                reject("No se encontro el producto")
+            }
+            resolve(itemEncontrado);
         });
-    }, []);
+    };
     
-    return (
-        <div className="container"> 
-            <div className="row pb-3 pt-3">
-                <h3 className="fw-light">{props.greeting}</h3>
-                {
-                    data.map(item => (
-                    <div className="col-md-4 mb-2" key={item.id}>
-                        <CardItem initial={1} stock={item.stock} title={item.title} img={item.img} description={item.description}/>
-                    </div> 
-                    ))
-                }
-            </div>
-        </div>
-    );
+    useEffect(()=>{
+        getProductos()
+        .then(respuesta => setItem(respuesta))
+    }, []);
+
+  return (
+    <div>
+        <ItemDetail id={item.id} title={item.title} stock={item.stock} description={item.description} img={item.img}/>
+    </div>
+  )
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;
