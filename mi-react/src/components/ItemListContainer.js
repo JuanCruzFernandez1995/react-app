@@ -77,7 +77,7 @@ function ItemListContainer(props){
                 {
                     data.map(item => (
                     <div className="col-md-4 mb-2" key={item.id}>
-                        <CardItem initial={1} stock={item.stock} title={item.title} img={item.img} description={item.description}/>
+                        <CardItem id={item.id} initial={1} stock={item.stock} title={item.title} img={item.img} description={item.description}/>
                     </div> 
                     ))
                 }

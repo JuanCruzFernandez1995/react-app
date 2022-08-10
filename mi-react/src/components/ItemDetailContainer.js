@@ -4,6 +4,7 @@ import birra1 from "../assets/birra1.jpg";
 import birra2 from "../assets/birra2.jpg";
 import birra3 from "../assets/birra3.jpg";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 
 const cardsJSON = [
     {
@@ -54,10 +55,11 @@ const cardsJSON = [
 function ItemDetailContainer({itemId}) {
 
     const [item, setItem] = useState([]);
+    let idURL = useParams().id;
 
     function getProductos(){
         return new Promise((resolve, reject)=>{
-            let itemEncontrado = cardsJSON.find(element => itemId === element.id);
+            let itemEncontrado = cardsJSON.find(element => element.id == idURL);
             if (itemEncontrado === undefined || null){
                 reject("No se encontro el producto")
             }
@@ -68,11 +70,12 @@ function ItemDetailContainer({itemId}) {
     useEffect(()=>{
         getProductos()
         .then(respuesta => setItem(respuesta))
+        .catch(() => alert("No se encontro el producto"))
     }, []);
 
   return (
     <div>
-        <ItemDetail id={item.id} title={item.title} stock={item.stock} description={item.description} img={item.img}/>
+        <ItemDetail title={item.title} stock={item.stock} description={item.description} img={item.img}/>
     </div>
   )
 }

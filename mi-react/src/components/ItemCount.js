@@ -29,7 +29,7 @@ function ItemCount({stock, initial, onAdd}) {
         
           <div className='d-flex justify-content-center align-items-baseline'>
             <button type="button" className="btn btn-primary" onClick={handleRemove}>-</button>
-            <p className='mx-3'>Cantidad: {count} </p>
+            <p className='mx-2'>Cantidad: {count} </p>
             <button type="button" className="btn btn-primary" onClick={handleAdd}>+</button>
           </div>
           <div className='text-center'>
