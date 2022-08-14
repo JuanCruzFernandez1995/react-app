@@ -13,9 +13,6 @@ function CardItem ({title, img, description, stock, initial, onAdd, id}){
             <p className="card-text text-secondary">{description}</p>
             <Link to={`/detalle/${id}`}>Ver Mas</Link>    
         </div>
-        <div>
-            <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
-        </div>
     </div>
     );
 }
