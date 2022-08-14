@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemCount from './ItemCount';
 
-function ItemDetail({title, stock, img, description, initial}) {
+function ItemDetail({title, stock, img, description, initial, id}) {
   return (
     <div className='d-flex align-items-center justify-content-end my-2 gap-5'>
       <div className="card" style={{width: "14rem", height: "100%"}}>
