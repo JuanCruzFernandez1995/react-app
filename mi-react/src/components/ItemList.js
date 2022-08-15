@@ -1,16 +1,23 @@
 import CardItem from "./CardItem";
 import React, { useState, useEffect} from "react";
 import getProductos from "../Helpers/Index";
+import { useParams } from "react-router-dom";
 
 
 function ItemList(props){
+    let catFilter = useParams().category;
     const [data, setData] = useState([]);
 
     useEffect(() => {
         getProductos().then((respuesta) => {
-            setData(respuesta);
-        });
-    }, []);
+            if(catFilter){
+                let categoryFilter = data.filter(element => element.category === catFilter)
+                setTimeout(()=> setData(categoryFilter), 500)
+            } else{
+               setData(respuesta);
+            }
+        }).catch((error) => alert(error));
+    }, [catFilter]);
 
     return (
         <div className="container"> 
