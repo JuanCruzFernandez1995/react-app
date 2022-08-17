@@ -2,6 +2,13 @@ import React from 'react'
 import ItemCount from './ItemCount';
 
 function ItemDetail({title, stock, img, description, initial, id}) {
+
+  const quantityInCart = 0; //Reemplazar por un state para hacer dinamico y agregar el set en handleAdd
+
+  function handleAdd(count){
+    console.log("OK");
+  }
+
   return (
     <div className='d-flex align-items-center justify-content-end my-2 gap-5'>
       <div className="card" style={{width: "14rem", height: "100%"}}>
@@ -12,7 +19,7 @@ function ItemDetail({title, stock, img, description, initial, id}) {
           </div>
       </div>
       <div className='align-self-start border rounded p-2'>
-      <ItemCount stock={stock} initial={initial}/>
+      <ItemCount stock={stock} initial={initial} onAdd={handleAdd}/>
       <p className='border'>Stock: {stock}</p>
       </div>
     </div>
