@@ -1,12 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
+import { useContext, useState } from 'react';
+import { cartContext } from '../store/cartContext';
 
-function ItemDetail({title, stock, img, description, initial, id}) {
+function ItemDetail({title, stock, img, description, initial, id, categoria}) {
 
-  const quantityInCart = 0; //Reemplazar por un state para hacer dinamico y agregar el set en handleAdd
+  const {addToCart} = useContext(cartContext);
+  const [quantityInCart, setQuantityInCart] = useState(0);;
 
   function handleAdd(count){
-    console.log("OK");
+    setQuantityInCart(count);
+    const itemToCart = {title, stock, img, description, id, categoria};
+    addToCart(itemToCart, count);
   }
 
   return (
@@ -19,7 +25,12 @@ function ItemDetail({title, stock, img, description, initial, id}) {
           </div>
       </div>
       <div className='align-self-start border rounded p-2'>
-      <ItemCount stock={stock} initial={initial} onAdd={handleAdd}/>
+      {quantityInCart === 0 ? (
+        <ItemCount stock={stock} initial={initial} onAdd={handleAdd}/>) : (
+        <Link to="/cart">
+          <h6>Ir al carrito</h6>
+        </Link>
+      )}
       <p className='border'>Stock: {stock}</p>
       </div>
     </div>

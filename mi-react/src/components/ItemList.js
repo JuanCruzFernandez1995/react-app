@@ -29,6 +29,7 @@ function ItemList(props){
                         <CardItem id={item.id} initial={1} stock={item.stock} title={item.title} img={item.img} description={item.description}/>
                     </div> 
                     ))
+                    
                 }
             </div>
         </div>
