@@ -6,22 +6,23 @@ export function CartProvider ({children}) {
     const [cart, setCart] = useState([]);
 
     function addToCart(item, quantity){
-        if (isInCart(item.id)){
-            
-        } else {
-            let copyCart = [...cart];
-            copyCart.push( {...item, quantity} );
-            setCart(copyCart);
-        }
+        let copyCart = [...cart];
+        copyCart.push( {...item, quantity} );
+        setCart(copyCart);
+        
         
     }
 
-    function isInCart(id){
-        return (cart.some(itemInCart => itemInCart.id === id))
+    function isInCart (id){
+        return (cart.some((itemInCart) => itemInCart.id === id))
+    }
+
+    function removeAll (){
+        setCart([])
     }
 
     return (
-        <cartContext.Provider value={ {cart, addToCart} }>
+        <cartContext.Provider value={ {cart, addToCart, removeAll, isInCart} }>
             {children}
         </cartContext.Provider>
     )

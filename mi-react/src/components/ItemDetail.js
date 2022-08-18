@@ -7,12 +7,13 @@ import { cartContext } from '../store/cartContext';
 function ItemDetail({title, stock, img, description, initial, id, categoria}) {
 
   const {addToCart} = useContext(cartContext);
+
   const [quantityInCart, setQuantityInCart] = useState(0);;
 
   function handleAdd(count){
     setQuantityInCart(count);
-    const itemToCart = {title, stock, img, description, id, categoria};
-    addToCart(itemToCart, count);
+    const itemToCart = {title, stock, img, description, id, categoria, quantityInCart};
+    addToCart(itemToCart);
   }
 
   return (
