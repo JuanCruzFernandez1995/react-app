@@ -7,16 +7,17 @@ import { useParams } from "react-router-dom";
 function ItemList(props){
     let catFilter = useParams().category;
     const [data, setData] = useState([]);
+    
 
     useEffect(() => {
         getProductos().then((respuesta) => {
             if(catFilter){
                 let categoryFilter = data.filter(element => element.category === catFilter)
-                setTimeout(()=> setData(categoryFilter), 500)
+                setTimeout(()=> setData(categoryFilter), 1000);
             } else{
                setData(respuesta);
             }
-        }).catch((error) => alert(error));
+        });
     }, [catFilter]);
 
     return (
@@ -29,7 +30,7 @@ function ItemList(props){
                         <CardItem id={item.id} initial={1} stock={item.stock} title={item.title} img={item.img} description={item.description}/>
                     </div> 
                     ))
-                    
+            
                 }
             </div>
         </div>

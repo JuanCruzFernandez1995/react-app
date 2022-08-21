@@ -29,6 +29,16 @@ function NavBar() {
                   Contacto
                 </Link>
             </li>
+            <li>
+                <Link to="/category/cerveza">
+                  Cerveza
+                </Link>
+            </li>
+            <li>
+                <Link to="/category/ginebra">
+                  Gines
+                </Link>
+            </li>
           </ul>
           
       </div>
