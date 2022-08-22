@@ -8,8 +8,6 @@ export function CartProvider ({children}) {
     let copyCart = [...cart];
 
     function addToCart(item, quantity){
-        //console.log(item);
-        //console.log(quantity);
         if(!isInCart(item.id)){
             copyCart.push( {...item, quantity} );
             setCart(copyCart);
@@ -18,7 +16,7 @@ export function CartProvider ({children}) {
                 if(prod.id === item.id){
                     let productUpdate = {
                         ...prod,
-                        quantity: item.quantity,
+                        quantity: parseInt(quantity + prod.quantity),
                     }
                     return productUpdate
                 } else {
