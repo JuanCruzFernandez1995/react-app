@@ -7,22 +7,16 @@ function ItemCount({stock, initial, onAdd}) {
       if(count < stock){
         setCount (count + 1)
       }
+      
     }
     
     const removeQuant = () => {
       if(count > 1){
         setCount(count - 1)
       }
+      
     }
-    /* const addCart = () => {
-      if(stock > 0){
-        alert(`Agregaste ${count} item`)
-        setCount(initial)
-      } else {
-        alert(`No hay stock de este producto`)
-        setCount(initial)
-      }
-    } */
+
     
   return (
     <> 

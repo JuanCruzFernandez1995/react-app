@@ -3,12 +3,12 @@ import React from "react";
 import ItemList from "./ItemList";
 
 
-function ItemListContainer(){
+function ItemListContainer(props){
     
     
     return (
         <div> 
-            <ItemList />
+            <ItemList greeting={props.greeting} />
         </div>
     );
 }

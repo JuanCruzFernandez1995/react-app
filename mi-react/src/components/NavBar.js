@@ -30,12 +30,12 @@ function NavBar() {
                 </Link>
             </li>
             <li>
-                <Link to="/category/cerveza">
+                <Link to="category/cerveza">
                   Cerveza
                 </Link>
             </li>
             <li>
-                <Link to="/category/ginebra">
+                <Link to="category/ginebra">
                   Gines
                 </Link>
             </li>

@@ -5,12 +5,28 @@ export const cartContext = createContext();
 export function CartProvider ({children}) {
     const [cart, setCart] = useState([]);
 
+    let copyCart = [...cart];
+
     function addToCart(item, quantity){
-        let copyCart = [...cart];
-        copyCart.push( {...item, quantity} );
-        setCart(copyCart);
-        
-        
+        //console.log(item);
+        //console.log(quantity);
+        if(!isInCart(item.id)){
+            copyCart.push( {...item, quantity} );
+            setCart(copyCart);
+        } else {
+            let cartUpdate = cart.map((prod) => {
+                if(prod.id === item.id){
+                    let productUpdate = {
+                        ...prod,
+                        quantity: item.quantity,
+                    }
+                    return productUpdate
+                } else {
+                    return prod
+                }
+            })
+            setCart(cartUpdate)
+        }
     }
 
     function isInCart (id){

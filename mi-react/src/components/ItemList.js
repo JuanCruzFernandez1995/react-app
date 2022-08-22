@@ -5,20 +5,22 @@ import { useParams } from "react-router-dom";
 
 
 function ItemList(props){
-    let catFilter = useParams().category;
+    let { idCategory } = useParams();
     const [data, setData] = useState([]);
     
-
-    useEffect(() => {
+    useEffect(()=> {
         getProductos().then((respuesta) => {
-            if(catFilter){
-                let categoryFilter = data.filter(element => element.category === catFilter)
-                setTimeout(()=> setData(categoryFilter), 1000);
-            } else{
-               setData(respuesta);
+            let filters = respuesta.filter ((element)=> element.category === idCategory);
+            if(idCategory === undefined) {
+                setData(respuesta);
+                
+            } else {
+                setData(filters);
+                
+
             }
-        });
-    }, [catFilter]);
+    });
+    }, [[idCategory], [data]]);
 
     return (
         <div className="container"> 
