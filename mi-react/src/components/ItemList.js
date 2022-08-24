@@ -20,7 +20,7 @@ function ItemList(props){
 
             }
     });
-    }, [[idCategory], [data]]);
+    }, [idCategory]);
 
     return (
         <div className="container"> 
