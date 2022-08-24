@@ -86,7 +86,7 @@ const cardsJSON = [
 function GetProductos(id){
     
     return new Promise((resolve, reject)=>{
-        let itemEncontrado = cardsJSON.find(element => element.id == id);
+        let itemEncontrado = cardsJSON.find(element => element.id === id);
         if (itemEncontrado === undefined || null){
             reject("No se encontro el producto")
         }

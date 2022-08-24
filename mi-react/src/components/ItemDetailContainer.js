@@ -16,7 +16,7 @@ function ItemDetailContainer() {
         GetProductos(idURL)
         .then(respuesta => setItem(respuesta))
         .catch(() => alert("No se encontro el producto"))
-    }, []);
+    }, [idURL]);
 
   return (
     <div>

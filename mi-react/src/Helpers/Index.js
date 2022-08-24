@@ -1,4 +1,4 @@
-import birra1 from "../assets/birra1.jpg";
+/* import birra1 from "../assets/birra1.jpg";
 import birra2 from "../assets/birra2.jpg";
 import birra3 from "../assets/birra3.jpg";
 import birra4 from "../assets/birra4.jpg";
@@ -7,8 +7,11 @@ import birra6 from "../assets/birra6.jpg";
 import gin1 from "../assets/gin1.jpeg";
 import gin2 from "../assets/gin2.jpeg";
 import gin3 from "../assets/gin3.jpg";
+ */
+import firestoreDB from "../services/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
-const cards = [
+/* const cards = [
     {
         id: 1,
         title: 'Boston Ale',
@@ -81,11 +84,18 @@ const cards = [
         stock: 5,
         category: 'ginebra'
     },
-];
+]; */
 
 function getProductos(){
     return new Promise((resolve)=>{
-        setTimeout(()=> resolve(cards), 500);
+        const itemCollection = collection(firestoreDB, "bebidas", );
+        getDocs(itemCollection).then(snapshot => {
+            const docsData = snapshot.docs.map(doc => {
+                return {...doc.data(), id: doc.id}
+            });
+            resolve(docsData);
+            console.log(docsData);
+        });
     });
 }
 

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 
 function ItemList(props){
-    let { idCategory } = useParams();
+    let idCategory = useParams().idCategory;
     const [data, setData] = useState([]);
     
     useEffect(()=> {
@@ -16,11 +16,9 @@ function ItemList(props){
                 
             } else {
                 setData(filters);
-                
-
             }
     });
-    }, [[idCategory], [data]]);
+    }, /* [idCategory], [data], */[]);
 
     return (
         <div className="container"> 
