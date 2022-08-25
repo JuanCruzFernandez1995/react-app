@@ -7,18 +7,17 @@ function NavBar() {
           <h1>
               E-commerce React
           </h1>
-          <ul>
-            <CartWidget />
+          <ul className="d-flex align-items-center">
+            <li>
+              <Link to="/cart"> 
+                <CartWidget /> 
+              </Link>
+            </li>
             <li>
                 <Link to="/">
                   Home
                 </Link>
             </li>
-            {/* <li>
-                <a href="Products">
-                  Products
-                </a>
-            </li> */}
             <li>
                 <Link to="/nosotros">
                     Nosotros

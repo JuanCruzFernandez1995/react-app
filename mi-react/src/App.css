@@ -33,7 +33,7 @@ body {
   list-style: none;
   margin-right: 1em;
   transition: all 0.3s ease;
-  
+  padding: 5px;
 }
 
 .navBar ul li:hover {
