@@ -16,6 +16,7 @@ const cardsJSON = [
         description: 'Cerveza rubia tipo Boston Ale de bajo amargor, con balance hacia la malta y suave caramelo',
         stock: 5,
         category: 'cerveza',
+        price: 10
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ const cardsJSON = [
         description: 'Esta cerveza rubia posee una alta tomabilidad, ligereza, dorada, con un toque de trigo y un delicado, aunque notorio, aroma a lúpulo',
         stock: 5,
         category: 'cerveza',
+        price: 10
     },
     {
         id: 3,
@@ -32,6 +34,7 @@ const cardsJSON = [
         description: 'La India pale ale es un estilo de cerveza de tradición inglesa que se caracteriza como una ale​ pálida y espumosa con un alto nivel de alcohol y de lúpulo​',
         stock: 5,
         category: 'cerveza',
+        price: 10
     },
     {
         id: 4,
@@ -40,6 +43,7 @@ const cardsJSON = [
         description: 'En aroma y sabor, la NEIPA se caracteriza por tener al lúpulo como protagonista absoluto',
         stock: 5,
         category: 'cerveza',
+        price: 10
     },
     {
         id: 5,
@@ -48,6 +52,7 @@ const cardsJSON = [
         description: 'Stout es el nombre de un estilo de cerveza, tipo ale, muy oscura, originario de las islas británicas. Era el nombre utilizado para la cerveza más fuerte​',
         stock: 5,
         category: 'cerveza',
+        price: 10
     },
     {
         id: 6,
@@ -56,6 +61,7 @@ const cardsJSON = [
         description: 'La Cream ale es un estilo de cerveza estadounidense de color claro y bien atenuado, es decir, más seco y con un contenido de alcohol algo más alto que la cerveza normal​',
         stock: 5,
         category: 'cerveza',
+        price: 10
     },
     {
         id: 7,
@@ -64,6 +70,7 @@ const cardsJSON = [
         description: 'Beefeater es el gin Premium más exportado del mundo, su distinguido sabor se puede disfrutar en más de 170 países',
         stock: 5,
         category: 'ginebra',
+        price: 10
     },
     {
         id: 8,
@@ -72,6 +79,7 @@ const cardsJSON = [
         description: 'Ginebra tipo London Dry gin elaborada en Reino Unido. Todos los ingredientes se maceran con la base de alcohol tridestilado y se redestilan una vez más​',
         stock: 5,
         category: 'ginebra',
+        price: 10
     },
     {
         id: 9,
@@ -80,6 +88,7 @@ const cardsJSON = [
         description: 'Al paladar, transmite piel de limón y una dulzura media, seguidas de un enebro intenso y una dulzura ácida de limón, apoyados por notas de salida de cilantro y regaliz​',
         stock: 5,
         category: 'ginebra',
+        price: 10
     },
 ];
 

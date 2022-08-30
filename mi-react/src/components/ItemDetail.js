@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 import { useContext, useState } from 'react';
 import { cartContext } from '../store/cartContext';
 
-function ItemDetail({title, stock, img, description, initial, id, categoria}) {
+function ItemDetail({title, stock, img, description, initial, id, categoria, price}) {
 
   const qtyCart = 0;
   const [quantityInCart, setQuantityInCart] = useState(qtyCart);
@@ -12,7 +12,7 @@ function ItemDetail({title, stock, img, description, initial, id, categoria}) {
 
   function handleAdd(count){
     setQuantityInCart(count);
-    let itemToCart = {title, stock, img, description, id, categoria};
+    let itemToCart = {title, stock, img, description, id, categoria, price};
     addToCart(itemToCart, count);
   }
 
@@ -22,7 +22,8 @@ function ItemDetail({title, stock, img, description, initial, id, categoria}) {
           <img src={img} className="card-img-top" alt="..."/>
           <div className="card-body d-md-flex flex-column justify-content-between align-items-center">
               <h5 className="card-title">{title}</h5>
-              <p className="card-text text-secondary">{description}</p>   
+              <p className="card-text text-secondary">{description}</p> 
+              <p className='card-text text-secondary'>Precio: ${price}</p>  
           </div>
       </div>
       <div className='align-self-start border rounded p-2'>

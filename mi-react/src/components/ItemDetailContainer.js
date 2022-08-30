@@ -16,11 +16,11 @@ function ItemDetailContainer() {
         GetProductos(idURL)
         .then(respuesta => setItem(respuesta))
         .catch(() => alert("No se encontro el producto"))
-    }, []);
+    }, [idURL]);
 
   return (
     <div>
-        <ItemDetail categoria={item.category} id={item.id} title={item.title} stock={item.stock} description={item.description} img={item.img} initial={1}/>
+        <ItemDetail price={item.price} categoria={item.category} id={item.id} title={item.title} stock={item.stock} description={item.description} img={item.img} initial={1}/>
     </div>
   )
 }
