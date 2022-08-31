@@ -1,16 +1,17 @@
 import React from 'react'
 import './Cart.css';
 import { Link } from "react-router-dom"
-import { useContext, useEffect } from 'react'
+import { useContext, /* useEffect */ } from 'react'
 import { cartContext } from '../../store/cartContext';
+import ItemCount from '../ItemCount';
 
 function Cart() {
 
-  const { cart, clearCart, removeItem, } = useContext(cartContext);
+  const { cart, clearCart, removeItem, totalPrice, plusItemsCart, subItemsCart } = useContext(cartContext);
 
-  useEffect(()=>{
+  /* useEffect(()=>{
     console.log(cart);
-  }, [cart])
+  }, [cart]) */
   
   if(cart.length === 0){
     
@@ -23,7 +24,7 @@ function Cart() {
                   <div className="card">
                       <div className="card-body">
                         <div className='mb-1'>
-                          <h5>Total:</h5>
+                          <h5>Total: ${totalPrice()}</h5>
                           <span className="text-right ml-3"></span>
                         </div>
                         <div className='d-flex flex-column gap-1'>
@@ -42,10 +43,10 @@ function Cart() {
               {
                 cart.map((item) => {
                   return (
-                    <aside className="col-lg" key={item.id}>
-                      <div>
+                    <aside className="row" key={item.id}>
+                      <div className='col'>
                         <div className="card">
-                            <div className="row mt-3 table table-borderless table-shopping-cart">
+                            <div className="mt-1 table table-borderless table-shopping-cart">
                                 <div className='text-center'>
                                     <div>
                                         <div className='container'>
@@ -58,10 +59,11 @@ function Cart() {
                                               <p>Precio por unidad: <strong>${item.price}</strong></p>
                                         </div>
                                         <div>
-                                          <button type='button' className='btn btn-light'>-</button>
+                                          <button type='button' className='btn btn-light' onClick={subItemsCart}>-</button>
                                           <span className='px-2'>{item.quantity}</span>
-                                          <button type='button' className='btn btn-light'>+</button> 
+                                          <button type='button' className='btn btn-light' onClick={plusItemsCart(item.id)}>+</button> 
                                         </div>
+                                        {/* <ItemCount plusItem={plusItem} subItem={subItem} /> */}
                                         <div>
                                             <div className="price-wrap"> <span className="price"></span> </div>
                                         </div>
