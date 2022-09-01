@@ -7,14 +7,12 @@ function ItemCount({stock, initial, onAdd}) {
       if(count < stock){
         setCount (count + 1)
       }
-      
     }
     
     const removeQuant = () => {
       if(count > 1){
         setCount(count - 1)
       }
-      
     }
 
     

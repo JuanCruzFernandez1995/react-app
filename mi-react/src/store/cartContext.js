@@ -6,6 +6,7 @@ export function CartProvider ({children}) {
     const [cart, setCart] = useState([]);
 
     let copyCart = [...cart];
+    console.log(copyCart);
     //Agregar un producto, previamente valida con isInCart, si existe solo actualiza la cantidad, sino lo agrega.
     function addToCart(item, quantity){
         if(!isInCart(item.id)){
@@ -40,15 +41,50 @@ export function CartProvider ({children}) {
         const indexItem = copyCart.indexOf(itemRemove);
         copyCart.splice(indexItem, 1);
         setCart(copyCart);
-        console.log(copyCart);
+        
     }
     //Buscar un item por su ID
     function findItem(id){
         return (copyCart.find(item => item.id === parseInt(id)))
     }
 
+    function totalAmount() {
+        let amountCart = 0;
+        copyCart.map(item => amountCart += item.quantity);
+        return amountCart;
+    }
+
+    function totalPrice() {
+        let total = 0;
+        copyCart.map((item) => total += item.price * item.quantity);
+        return total;
+    }
+    function totalStock(item) {
+        let itemStock = findItem(item.id)
+        if (itemStock) {
+            return itemStock.stock
+        }
+        else {
+            return item.stock
+        }
+    }
+    function plusItemsCart(id) {
+        if (copyCart[id].stock !== 0) {
+            copyCart[id].quantity += 1;
+            copyCart[id].stock -= 1;
+            setCart(copyCart)
+        }
+    }
+    function subItemsCart(id) {
+        if (copyCart[id].quantity !== 1) {
+            copyCart[id].quantity -= 1;
+            copyCart[id].stock += 1;
+            setCart(copyCart);
+        }
+    }
+
     return (
-        <cartContext.Provider value={ {cart, addToCart, clearCart, removeItem, isInCart} }>
+        <cartContext.Provider value={ {cart, addToCart, clearCart, removeItem, isInCart, findItem, totalAmount, totalPrice, totalStock, plusItemsCart, subItemsCart} }>
             {children}
         </cartContext.Provider>
     )
