@@ -69,12 +69,11 @@ export function CartProvider ({children}) {
         }
     }
     function plusItemsCart(id) {
-        
-        /* if (copyCart[id].stock !== 0) {
+        if (copyCart[id].stock !== 0) {
             copyCart[id].quantity += 1;
             copyCart[id].stock -= 1;
             setCart(copyCart)
-        } */
+        }
     }
     function subItemsCart(id) {
         if (copyCart[id].quantity !== 1) {

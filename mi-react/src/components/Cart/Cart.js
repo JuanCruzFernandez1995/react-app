@@ -9,6 +9,7 @@ function Cart() {
 
   const { cart, clearCart, removeItem, totalPrice, plusItemsCart, subItemsCart } = useContext(cartContext);
 
+
   /* useEffect(()=>{
     console.log(cart);
   }, [cart]) */
@@ -59,14 +60,14 @@ function Cart() {
                                               <p>Precio por unidad: <strong>${item.price}</strong></p>
                                         </div>
                                         <div>
-                                          <button type='button' className='btn btn-light' onClick={subItemsCart}>-</button>
-                                          <span className='px-2'>{item.quantity}</span>
-                                          <button type='button' className='btn btn-light' onClick={plusItemsCart(item.id)}>+</button> 
+                                          {/* <button type='button' className='btn btn-light'>-</button> */}
+                                         {/*  <span className='px-2'>{item.quantity}</span> */}
+                                          {/* <button type='button' className='btn btn-light'>+</button> */} 
                                         </div>
-                                        {/* <ItemCount plusItem={plusItem} subItem={subItem} /> */}
-                                        <div>
+                                        {/* <ItemCount /> */}
+                                        {/* <div>
                                             <div className="price-wrap"> <span className="price"></span> </div>
-                                        </div>
+                                        </div> */}
                                         <div className="text-right d-none d-md-block">
                                           <button onClick={removeItem} type="button" className="btn btn-light" > Remove 
                                           </button> 
