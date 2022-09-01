@@ -2,6 +2,9 @@ import CardItem from "./CardItem";
 import React, { useState, useEffect} from "react";
 import getProductos from "../Helpers/Index";
 import { useParams } from "react-router-dom";
+import { collection, where } from "firebase/firestore";
+import firestoreDB from "../services/firebase";
+import { getDocs, query } from 'firebase/firestore';
 
 
 function ItemList(props){
@@ -10,12 +13,26 @@ function ItemList(props){
     
     useEffect(()=> {
         getProductos().then((respuesta) => {
-            let filters = respuesta.filter ((element)=> element.category === idCategory);
+            if(idCategory){
+                const apiDataCollection = collection(firestoreDB, "bebidas");
+                const q = query(apiDataCollection, where("category", "==", idCategory))
+                getDocs(q).then( snapshot => {
+                    const docData = snapshot.docs.map(doc => {
+                        return {
+                            ...doc.data(), id: doc.id
+                        }
+                    })
+                    setTimeout( () => setData(docData), 500)
+                })
+            } else {
+                setData(respuesta)
+            }
+            /* let filters = respuesta.filter ((element)=> element.category === idCategory);
             if(idCategory === undefined) {
                 setData(respuesta);
             } else {
                 setData(filters);
-            }
+            } */
     });
     }, [idCategory]);
 

@@ -3,11 +3,11 @@ import './Cart.css';
 import { Link } from "react-router-dom"
 import { useContext, /* useEffect */ } from 'react'
 import { cartContext } from '../../store/cartContext';
-import ItemCount from '../ItemCount';
+/* import ItemCount from '../ItemCount'; */
 
 function Cart() {
 
-  const { cart, clearCart, removeItem, totalPrice, plusItemsCart, subItemsCart } = useContext(cartContext);
+  const { cart, clearCart, removeItem, totalPrice, /* plusItemsCart, subItemsCart */ } = useContext(cartContext);
 
 
   /* useEffect(()=>{

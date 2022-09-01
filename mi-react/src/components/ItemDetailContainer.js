@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import GetProductos from "../Helpers/IndexDetail";
+/* import GetProductos from "../Helpers/IndexDetail"; */
+import getProductos from "../Helpers/Index";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 
@@ -10,7 +11,7 @@ function ItemDetailContainer() {
     const [item, setItem] = useState([]);
     
     useEffect(()=>{
-        GetProductos(idURL)
+        getProductos(idURL)
         .then(respuesta => setItem(respuesta))
         .catch(() => alert("No se encontro el producto"))
     }, [idURL]);

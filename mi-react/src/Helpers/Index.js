@@ -9,7 +9,7 @@ import gin2 from "../assets/gin2.jpeg";
 import gin3 from "../assets/gin3.jpg"; */
 
 import firestoreDB from '../services/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, getDoc, collection, doc } from 'firebase/firestore';
 
 /* const cards = [
     {
@@ -95,15 +95,27 @@ import { getDocs, collection } from 'firebase/firestore';
     },
 ]; */
 
-function getProductos(){
-    return new Promise((resolve => {
-        const productsCollections = collection(firestoreDB, "bebidas")
-        getDocs(productsCollections).then(snapshot => {
-          const docsData = snapshot.docs.map(doc => { return { ...doc.data(), id: doc.id } })
-          resolve(docsData)
-          console.log(docsData)
+export default function getProductos(idURL){
+    return new Promise((resolve, reject) => {
+        if(idURL){
+            const apiDataCollection = collection(firestoreDB, "bebidas");
+            const docRef = doc(apiDataCollection, idURL);
+            getDoc(docRef).then( snapshot => {
+                setTimeout( () => resolve (
+                    {...snapshot.data(), id: snapshot.id}
+                ), 500)
+            })
+            } else if([]){
+            const apiDataCollection = collection(firestoreDB, "bebidas");
+            getDocs(apiDataCollection).then( snapshot => {
+                const docsData = snapshot.docs.map(doc => { return { ...doc.data(), id: doc.id }
+             })
+            
+            setTimeout( () => resolve(docsData), 500);
+            });
+        }else{
+                reject (alert("No encontramos producto"))
+            };
+        
         })
-      }))
     }
-
-export default getProductos;
