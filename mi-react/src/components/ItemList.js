@@ -13,11 +13,8 @@ function ItemList(props){
             let filters = respuesta.filter ((element)=> element.category === idCategory);
             if(idCategory === undefined) {
                 setData(respuesta);
-                
             } else {
                 setData(filters);
-                
-
             }
     });
     }, [idCategory]);
