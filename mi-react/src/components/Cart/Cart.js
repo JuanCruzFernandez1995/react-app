@@ -29,7 +29,9 @@ function Cart() {
                           <span className="text-right ml-3"></span>
                         </div>
                         <div className='d-flex flex-column gap-1'>
-                          <button type='button' className="btn-sm btn btn-out btn-primary btn-square btn-main"> CHECKOUT </button>
+                          <Link to="/checkout">
+                            <button type='button' className="btn-sm btn btn-out btn-primary btn-square btn-main"> CHECKOUT </button>
+                          </Link>
                           <Link to="/">
                             <button  type='button' className="btn-sm btn btn-out btn-success btn-square btn-main">CONTINUAR 
                             </button >
