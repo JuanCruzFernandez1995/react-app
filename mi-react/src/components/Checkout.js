@@ -65,9 +65,9 @@ function Checkout(){
     else {
         return (
             <main>
-                <div>
-                    <h1> Finalizando la compra </h1>
-                    <form onSubmit={handleSubmit}>
+                <div className='d-flex justify-content-center align-items-center flex-column'>
+                    <h1 className='card-title'> Finalizando la compra </h1>
+                    <form className='m-3 p-3 card d-flex flex-column text-center gap-1' onSubmit={handleSubmit}>
                         <legend className='label'> Complete los datos</legend>
                         <label className='label' htmlFor='name'> Nombre </label>
                         <input className='formInput' type="text" name='name' value={userBuyer.name} onChange={inputChangeHandler} placeholder='Example: Juan Cruz Fernandez' required></input>
