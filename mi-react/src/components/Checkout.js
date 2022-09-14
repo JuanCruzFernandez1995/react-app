@@ -46,15 +46,13 @@ function Checkout(){
     if (orderFirebase.complete === true) {
         return (
             <main>
-                <div>
-                    <h1>
-                        Haz realizado correctamente una compra!
-                    </h1>
-                    <h3> Gracias por confiar en nosotros {userBuyer.name} </h3>
-                    <h5> A la brevedad recibiras mas informacion de tu compra en la siguiente direccion: {userBuyer.email} </h5>
+                <div className='d-flex flex-column gap-2 m-2'>
+                    <h1> Haz realizado correctamente una compra! </h1>
+                    <h3> Gracias por confiar en nosotros {userBuyer.name}</h3>
+                    <h5> A la brevedad recibiras mas informacion de tu compra en tu casilla de correo: {userBuyer.email} </h5>
                     <h5> Tu codigo de seguimiento: {orderFirebase.id} </h5>
                     <Link to="/">
-                        <button>
+                        <button className="btn p-1 btn-primary">
                             Continuar comprando
                         </button>
                     </Link>
@@ -75,7 +73,7 @@ function Checkout(){
                         <input className='formInput' type="number" name='phone' value={userBuyer.phone} onChange={inputChangeHandler} placeholder='Cod.Area(sin 0) - Num' required></input>
                         <label className='label' htmlFor="email">Email</label>
                         <input className='formInput' type="email" name='email' value={userBuyer.email} onChange={inputChangeHandler} placeholder='ejemplo@ejemplo.com' required></input>
-                        <input className='buttonForm' type="submit" value='Comprar'></input>
+                        <input className='buttonForm p-1' type="submit" value='Comprar'></input>
                     </form>
                 </div>
             </main>
